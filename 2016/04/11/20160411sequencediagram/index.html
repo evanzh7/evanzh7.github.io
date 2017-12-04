@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>时序图 - QI</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link rel="alternative" href="/atom.xml" title="QI" type="application/atom+xml">
+  
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5.js"></script>
+    <script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+
+</head>
+<body>
+    <header id="header">
+    <div class="nav-warp">
+      <nav id="nav" class="w">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/recommend">推荐</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+        <a id="nav-search" class="icon-search fr" onclick="show_search()" title="搜索"></a>
+        <div id="nav-search-input" class="hide">
+          <form class="search-form" onsubmit="return dispatch()">
+            <input type="hidden" id="site" value="site:http://evanzh7.github.com">
+            <input type="text" id="q" class="input-text" name="q" placeholder="搜索">
+            <input type="submit" value="" class="input-submit">
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="logo">
+      <div class="hg">
+      
+        <h2 id="site-title">
+          <a href="/">QI</a>
+        </h2>
+        
+          <p id="site-description">Let&#39;s hack</p>
+        
+      
+      </div>
+    </div>
+  </header>
+
+  <section id="main"><article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h1 class="post-title">时序图</h1>
+    
+  
+
+    
+<time datetime="2016-04-11T15:23:29.000Z" class="post-time">2016-04-11</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    <p>如何绘制时序图<br>定义  </p>
+<p>时序图(Sequence Diagram)是显示对象之间交互的图，这些对象是按时间顺序排列的。顺序图中显示的是参与交互的对象及其对象之间消息交互的顺序。</p>
+<a id="more"></a>
+<p>如何绘制类图</p>
+<ol>
+<li>对象横轴排列</li>
+<li>消息沿纵轴按时间排序</li>
+</ol>
+<p>时序图元素  </p>
+<ol>
+<li><p>角色（Actor）：可以是人、其他的系统或子系统。  </p>
+</li>
+<li><p>对象（Object）：</p>
+<p> 三种命名方式：<br> 第一种 包括对象名和类名。<br> 第二种 只显示类名不显示对象名，即表示他是一个匿名对象。<br> 第三种 只显示对象名不显示类名。</p>
+</li>
+<li><p>生命线（Lifeline）：生命线在顺序图中表示为从对象图标向下延伸的一条虚线，表示对象存在的时间。</p>
+</li>
+</ol>
+<ol>
+<li><p>控制焦点（Focus of Control）</p>
+<p> 控制焦点是顺序图中表示时间段的符号，在这个时间段内对象将执行相应的操作。用小矩形表示。你好</p>
+</li>
+<li><p>消息（Message）</p>
+<p> 消息一般分为同步消息（Synchronous Message），异步消息（Asynchronous Message）和返回消息。</p>
+</li>
+<li><p>自关联消息（Self-Message）</p>
+</li>
+</ol>
+<p>时序图创建步骤  </p>
+<ol>
+<li>确定交互过程的上下文  </li>
+<li>识别参与过程的交互对象</li>
+<li>为每个对象设置生命线</li>
+<li>从初始消息开始，依次画出随后消息</li>
+<li>考虑消息的潜逃，标示消息发生时的时间点，则采用foc(focus of control)</li>
+<li>说明时间约束的地点</li>
+</ol>
+<p>团购系统取消订单为例子<br><img src="http://pic002.cnblogs.com/images/2012/316630/2012061314435677.jpg" alt=""></p>
+
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+      
+  <ul class="post-tag icon-tag fl">
+    
+      <li><a href="/tags/java/">#java</a></li>
+    
+  </ul>
+
+      
+    </section>
+  </footer>
+  
+</article>
+
+    
+<nav id="post-nav" class="clear">
+  
+    <a href="/2017/01/02/20170101-2016summary/" id="post-nav-newer" class="post-nav-link-wrap fl" title="2016年度总结 and 2017计划">
+      <div class="post-nav-title">&laquo; 2016年度总结 and 2017计划</div>
+    </a>
+  
+  
+    <a href="/2015/07/29/20150729ali-interview/" id="post-nav-older" class="post-nav-link-wrap fr" title="阿里面试题">
+      <div class="post-nav-title">阿里面试题 &raquo;</div>
+    </a>
+  
+</nav>
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-20160411sequencediagram" data-title="时序图" data-url="http://evanzh7.github.com/2016/04/11/20160411sequencediagram/"></div>
+  <!-- 多说评论框 end -->
+</section>
+</section>
+    <footer id="footer">
+    <div class="foot-warp">
+      <p>© 2014 QI</p>
+    </div>
+  </footer>
+  <script src="/js/tools.js"></script>
+  
+  
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:'evanzh7'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
+  
+  
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>java web项目总结 - QI</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link rel="alternative" href="/atom.xml" title="QI" type="application/atom+xml">
+  
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5.js"></script>
+    <script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+
+</head>
+<body>
+    <header id="header">
+    <div class="nav-warp">
+      <nav id="nav" class="w">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/recommend">推荐</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+        <a id="nav-search" class="icon-search fr" onclick="show_search()" title="搜索"></a>
+        <div id="nav-search-input" class="hide">
+          <form class="search-form" onsubmit="return dispatch()">
+            <input type="hidden" id="site" value="site:http://evanzh7.github.com">
+            <input type="text" id="q" class="input-text" name="q" placeholder="搜索">
+            <input type="submit" value="" class="input-submit">
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="logo">
+      <div class="hg">
+      
+        <h2 id="site-title">
+          <a href="/">QI</a>
+        </h2>
+        
+          <p id="site-description">Let&#39;s hack</p>
+        
+      
+      </div>
+    </div>
+  </header>
+
+  <section id="main"><article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h1 class="post-title">java web项目总结</h1>
+    
+  
+
+    
+<time datetime="2014-04-13T01:00:40.000Z" class="post-time">2014-04-13</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    <p>最近做了一个java web的项目，写篇文章记录下期间遇到的问题和一些知识的回顾。  </p>
+<p>网站用到的技术：  </p>
+<ol>
+<li>spring3  </li>
+<li>hibernate3 </li>
+<li>struts 2.1.8  </li>
+<li>quartz 1.6.5  </li>
+<li>Bootstrap 2.0  </li>
+<li>jQuery 1.11.0  <a id="more"></a>  
+</li>
+</ol>
+<p>编程环境    </p>
+<ol>
+<li>mysql 5.6  </li>
+<li>navicat  </li>
+<li>MyEclipse 6.0  </li>
+<li>windows 7  </li>
+<li>Deramweaver</li>
+</ol>
+<hr>
+<p>###一些重要知识点总结与回顾 </p>
+<ol>
+<li>spirng配置文件中,action对象生命周期的设定<ul>
+<li>scope = singleton<br>每个spring的IOC容器中只有一个共享的bean实例。每次请求不会生成新的实例。</li>
+<li>scope = prototype<br>每次访问都会重新生成新的实例。有状态的bean都使用prototype作用域，而对无状态的bean则应该使用singleton作用域。</li>
+<li>scope = request<br>每个HTTP请求都会产生一个新的实例，同时该bean仅在当前HTTP request内才有效。每次刷新页面，都会创建一个新的实例，运行完后就销毁这个实例。</li>
+<li>scope = session<br>用户给应用程序发送第一个请求的时候就创建的。同时该bean仅在当前HTTP session内有效。浏览器关闭，或者session超时，实例就会消亡，实例随着session生命周期而生而死。</li>
+<li>scope = globle session<br>global session作用域类似于标准的HTTP Session作用域，不过它仅仅在基于portlet的web应用中才有意义。Portlet规范定义了全局Session的概念，它被所有构成某个 portlet web应用的各种不同的portlet所共享。在global session作用域中定义的bean被限定于全局portlet Session的生命周期范围内。如果你在web中使用global session作用域来标识bean，那么web会自动当成session类型来使用。</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>struts2标签<br>在JSP页面中显示后台传来的数据，需要用标签显示，有三种方法显示数据。  </p>
+<ul>
+<li>&lt;%=对象名.属性%&gt;或者&lt;%=属性名%&gt;  </li>
+<li>EL表达式  </li>
+<li>S标签，用的是OGNL表达式 </li>
+</ul>
+</li>
+<li><p>chrome开发者工具。<br> chrome浏览器–菜单–工具–开发者工具<br> 可以方便查看JavaScript的错误。页面代码，js引用，css等。一般前端调试的时候比较方便。</p>
+</li>
+<li><p>SSH框架集成时，使用jquery的ajax方法，list数据从后台传到前端，struts配置文件的result的配置问题。<br> 在配置文件中  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;result name=&quot;findAll4JS&quot; type=&quot;json&quot;&gt; </span><br><span class="line">   &lt;param name=&quot;root&quot;&gt;formationList&lt;/param&gt;  </span><br><span class="line">&lt;/result&gt;</span><br></pre></td></tr></table></figure>
+<p> 该返回值是jQuery的ajax方法调用对应的struts配置文件。这里param指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法。<br> 也可以用includeProperties和excludeProperties参数来实现。</p>
+</li>
+<li>权限设计<br> 权限可以简单实现也可以复杂实现。写起来比较复杂。留个坑，以后写。</li>
+<li>定时操作：Quartz框架或者数据库的定时器<br> 篇幅稍长，另写一篇文章总结。</li>
+</ol>
+
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+      
+  <ul class="post-tag icon-tag fl">
+    
+      <li><a href="/tags/java/">#java</a></li>
+    
+      <li><a href="/tags/web/">#web</a></li>
+    
+  </ul>
+
+      
+  <ul class="post-category icon-category fr">
+    
+      <li><a href="/categories/web开发/">web开发</a></li>
+    
+  </ul>
+
+    </section>
+  </footer>
+  
+</article>
+
+    
+<nav id="post-nav" class="clear">
+  
+    <a href="/2014/04/24/20140424battery_quartz/" id="post-nav-newer" class="post-nav-link-wrap fl" title="web项目中定时操作--quartz框架">
+      <div class="post-nav-title">&laquo; web项目中定时操作--quartz框架</div>
+    </a>
+  
+  
+    <a href="/2014/01/02/20140102hadoop_start/" id="post-nav-older" class="post-nav-link-wrap fr" title="初识Hadoop">
+      <div class="post-nav-title">初识Hadoop &raquo;</div>
+    </a>
+  
+</nav>
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-20140413webBattery" data-title="java web项目总结" data-url="http://evanzh7.github.com/2014/04/13/20140413webBattery/"></div>
+  <!-- 多说评论框 end -->
+</section>
+</section>
+    <footer id="footer">
+    <div class="foot-warp">
+      <p>© 2014 QI</p>
+    </div>
+  </footer>
+  <script src="/js/tools.js"></script>
+  
+  
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:'evanzh7'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
+  
+  
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>gradle学习（一） - QI</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link rel="alternative" href="/atom.xml" title="QI" type="application/atom+xml">
+  
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5.js"></script>
+    <script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+
+</head>
+<body>
+    <header id="header">
+    <div class="nav-warp">
+      <nav id="nav" class="w">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/recommend">推荐</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+        <a id="nav-search" class="icon-search fr" onclick="show_search()" title="搜索"></a>
+        <div id="nav-search-input" class="hide">
+          <form class="search-form" onsubmit="return dispatch()">
+            <input type="hidden" id="site" value="site:http://evanzh7.github.com">
+            <input type="text" id="q" class="input-text" name="q" placeholder="搜索">
+            <input type="submit" value="" class="input-submit">
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="logo">
+      <div class="hg">
+      
+        <h2 id="site-title">
+          <a href="/">QI</a>
+        </h2>
+        
+          <p id="site-description">Let&#39;s hack</p>
+        
+      
+      </div>
+    </div>
+  </header>
+
+  <section id="main"><article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h1 class="post-title">gradle学习（一）</h1>
+    
+  
+
+    
+<time datetime="2015-05-07T12:20:04.000Z" class="post-time">2015-05-07</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    <p>web项目写的越来越多，感觉越来越麻烦（其实是越来越懒），就想让工作全部都自动化，最近发现了one thing——gradle, 构建工具，就此挖坑。</p>
+<a id="more"></a>
+<p>这是用户手册，暂时还没发现中文的，英文版的就凑合着看吧<br><a href="http://gradle.org/docs/current/userguide/userguide.html" target="_blank" rel="noopener">http://gradle.org/docs/current/userguide/userguide.html</a></p>
+<p>章节这么多，我也是醉了，先挑紧要的看吧</p>
+<ul>
+<li>1，2，3，4章讲基础</li>
+<li>07章 java quickstart</li>
+<li>10章 web application quickstart</li>
+<li>13章 writing build scripts</li>
+<li>20章 gradle plugins</li>
+<li>22章 the java plugin</li>
+<li>37章 the eclipse plugins</li>
+</ul>
+
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+      
+  <ul class="post-tag icon-tag fl">
+    
+      <li><a href="/tags/java/">#java</a></li>
+    
+      <li><a href="/tags/web/">#web</a></li>
+    
+      <li><a href="/tags/gradle/">#gradle</a></li>
+    
+  </ul>
+
+      
+  <ul class="post-category icon-category fr">
+    
+      <li><a href="/categories/gradle/">gradle</a></li>
+    
+  </ul>
+
+    </section>
+  </footer>
+  
+</article>
+
+    
+<nav id="post-nav" class="clear">
+  
+    <a href="/2015/05/25/20150525hibernate/" id="post-nav-newer" class="post-nav-link-wrap fl" title="hibernate简单总结">
+      <div class="post-nav-title">&laquo; hibernate简单总结</div>
+    </a>
+  
+  
+    <a href="/2015/04/15/20150415spring_mvc_muti_object/" id="post-nav-older" class="post-nav-link-wrap fr" title="spring MVC将表单数据绑定到多个命令对象中">
+      <div class="post-nav-title">spring MVC将表单数据绑定到多个命令对象中 &raquo;</div>
+    </a>
+  
+</nav>
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-20150507gradle1" data-title="gradle学习（一）" data-url="http://evanzh7.github.com/2015/05/07/20150507gradle1/"></div>
+  <!-- 多说评论框 end -->
+</section>
+</section>
+    <footer id="footer">
+    <div class="foot-warp">
+      <p>© 2014 QI</p>
+    </div>
+  </footer>
+  <script src="/js/tools.js"></script>
+  
+  
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:'evanzh7'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
+  
+  
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</body>
+</html>

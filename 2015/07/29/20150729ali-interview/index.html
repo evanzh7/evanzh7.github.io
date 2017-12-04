@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>阿里面试题 - QI</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link rel="alternative" href="/atom.xml" title="QI" type="application/atom+xml">
+  
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5.js"></script>
+    <script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+
+</head>
+<body>
+    <header id="header">
+    <div class="nav-warp">
+      <nav id="nav" class="w">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/recommend">推荐</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+        <a id="nav-search" class="icon-search fr" onclick="show_search()" title="搜索"></a>
+        <div id="nav-search-input" class="hide">
+          <form class="search-form" onsubmit="return dispatch()">
+            <input type="hidden" id="site" value="site:http://evanzh7.github.com">
+            <input type="text" id="q" class="input-text" name="q" placeholder="搜索">
+            <input type="submit" value="" class="input-submit">
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="logo">
+      <div class="hg">
+      
+        <h2 id="site-title">
+          <a href="/">QI</a>
+        </h2>
+        
+          <p id="site-description">Let&#39;s hack</p>
+        
+      
+      </div>
+    </div>
+  </header>
+
+  <section id="main"><article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h1 class="post-title">阿里面试题</h1>
+    
+  
+
+    
+<time datetime="2015-07-29T09:07:14.000Z" class="post-time">2015-07-29</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    <p>记一次面试问题</p>
+<ol>
+<li>hash表的时间复杂度</li>
+</ol>
+<p>无冲突的hash table时间复杂度是o(1)，一般是O(c)，c为哈希表关键字冲突时查找的平均长度。</p>
+<ol>
+<li><p>为什么存取比较快</p>
+</li>
+<li><p>struts2运行机制</p>
+<p> 1.从客服端浏览器输入的url后，客服端通过http协议发送一个请求到服务器（tomcat），Tomcat收到这个请求之后，它会查看你请求的是哪一个web  application（一般是一个项目），接着将请求交给对应的web application处理；</p>
+<a id="more"></a>
+<p> 2.web application的处理过程：首先读取web.xml文件，通过filter过滤url，然后调用filter-class对应的类StrutsPrepareAndExecuteFilter；</p>
+<p> 3 接着StrutsPrepareAndExecuteFilter被调用，StrutsPrepareAndExecuteFilter询问ActionMapper来决定这个请是否需要调用某个Action。</p>
+<p> 4 如果ActionMapper决定需要调用某个Action，FilterDispatcher把请求的处理交给ActionProxy。</p>
+<p> 5 ActionProxy通过Configuration Manager询问框架的配置文件，找到需要调用的Action类<br> 6 ActionProxy创建一个ActionInvocation的实例。<br> 7 ActionInvocation实例使用命名模式来调用，在调用Action的过程前后，涉及到相关拦截器（Intercepter）的调用。<br> 8 一旦Action执行完毕，ActionInvocation负责根据struts.xml中的配置找到对应的返回结果。返回结果通常是（但不总是，也可 能是另外的一个Action链）一个需要被表示的JSP或者FreeMarker的模版。在表示的过程中可以使用Struts2 框架中继承的标签。</p>
+</li>
+</ol>
+<p>核心控制器是FilterDispatcher会过滤所有的请求，如果是满足struts要求的请求，该请求会转入框架处理。当框架获取action请求后，根据action的名字决定调用哪个业务逻辑组件。最后根据业务逻辑组件的处理信息决定转发到哪个视图；  </p>
+<p>Struts2有三部分组成:<br>核心控制器是FilterDispatcher，业务控制器和业务逻辑组件组件，其中核心控制器FilterDispatcher由Struts2提供，而业务逻辑控制器和业务逻辑组件要用户自己实现。  </p>
+<p>核心控制器FilterDispatcher: 负责拦截所有用户的请求，如果用户的请求以action结尾，该请求就会转入Struts2框架处理。  </p>
+<p>业务控制器组件：实现Action类的实例（或者继承了ActionSupport的实例），该类经常能够返回一个字符串。  </p>
+<p>业务逻辑组件：一般由javaBean或者EJB实现；</p>
+<ol>
+<li><p>mvc是什么</p>
+</li>
+<li><p>mvc的好处，为什么采取mvc</p>
+</li>
+</ol>
+
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+      
+  <ul class="post-tag icon-tag fl">
+    
+      <li><a href="/tags/面试/">#面试</a></li>
+    
+  </ul>
+
+      
+  <ul class="post-category icon-category fr">
+    
+      <li><a href="/categories/面试问题总结/">面试问题总结</a></li>
+    
+  </ul>
+
+    </section>
+  </footer>
+  
+</article>
+
+    
+<nav id="post-nav" class="clear">
+  
+    <a href="/2016/04/11/20160411sequencediagram/" id="post-nav-newer" class="post-nav-link-wrap fl" title="时序图">
+      <div class="post-nav-title">&laquo; 时序图</div>
+    </a>
+  
+  
+    <a href="/2015/07/28/20150728recommendation-in-js/" id="post-nav-older" class="post-nav-link-wrap fr" title="基于图论的简单推荐引擎(译)">
+      <div class="post-nav-title">基于图论的简单推荐引擎(译) &raquo;</div>
+    </a>
+  
+</nav>
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-20150729ali-interview" data-title="阿里面试题" data-url="http://evanzh7.github.com/2015/07/29/20150729ali-interview/"></div>
+  <!-- 多说评论框 end -->
+</section>
+</section>
+    <footer id="footer">
+    <div class="foot-warp">
+      <p>© 2014 QI</p>
+    </div>
+  </footer>
+  <script src="/js/tools.js"></script>
+  
+  
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:'evanzh7'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
+  
+  
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</body>
+</html>

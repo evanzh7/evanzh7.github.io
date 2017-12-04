@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>QI - Let&#39;s hack</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link rel="alternative" href="/atom.xml" title="QI" type="application/atom+xml">
+  
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5.js"></script>
+    <script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+
+</head>
+<body>
+    <header id="header">
+    <div class="nav-warp">
+      <nav id="nav" class="w">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/recommend">推荐</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+        <a id="nav-search" class="icon-search fr" onclick="show_search()" title="搜索"></a>
+        <div id="nav-search-input" class="hide">
+          <form class="search-form" onsubmit="return dispatch()">
+            <input type="hidden" id="site" value="site:http://evanzh7.github.com">
+            <input type="text" id="q" class="input-text" name="q" placeholder="搜索">
+            <input type="submit" value="" class="input-submit">
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="logo">
+      <div class="hg">
+      
+        <h1 id="site-title">
+          <a href="/">QI</a>
+        </h1>
+        
+          <h2 id="site-description">Let&#39;s hack</h2>
+        
+      
+      </div>
+    </div>
+  </header>
+
+  <section id="main">
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2015/07/20/20150720spring-autowire/">spring自动装配</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2015-07-20T02:07:03.000Z" class="post-time">2015-07-20</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>###(waht)定义：<br>Spring IoC容器可以自动装配（autowire）相互协作bean之间的关联关系。因此，如果可能的话，可以自动让Spring通过检查<br>beanFactory中的内容，来替我们指定bean的协作者（其他被依赖的bean）。<br>Spring的IOC容器通过Java反射机制了解了容器中所存在Bean的配置信息，这包括构造函数方法的结构，属性的信息，而正是由于这个原因，Spring容器才能够通过某种规则来对Bean进行自动装配，而无须通过显式的方法来进行配制。</p>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/java/">#java</a></li>
+    
+      <li><a href="/tags/javaweb/">#javaweb</a></li>
+    
+      <li><a href="/tags/spring/">#spring</a></li>
+    
+  </ul>
+
+    
+      <a href="/2015/07/20/20150720spring-autowire/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2015/06/02/20150602turing-express-love/">图灵表达爱的方式</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2015-06-02T15:32:49.000Z" class="post-time">2015-06-02</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>图灵遇到危险，劝说未婚妻离开自己。</p>
+<p>——I’m a homesexal</p>
+<p>——all right</p>
+<p>——men, not women</p>
+<p>——so what?<br>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/电影/">#电影</a></li>
+    
+      <li><a href="/tags/表白/">#表白</a></li>
+    
+  </ul>
+
+    
+      <a href="/2015/06/02/20150602turing-express-love/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2015/05/25/20150525hibernate/">hibernate简单总结</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2015-05-25T13:26:22.000Z" class="post-time">2015-05-25</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>###介绍<br>放出官网: <a href="http://hibernate.org/" target="_blank" rel="noopener">http://hibernate.org/</a><br>放出3.6.7版本官方文档:<a href="http://doc.gotomao.com/doc/hibernate/hibernate3.6/doc/index.html" target="_blank" rel="noopener">http://doc.gotomao.com/doc/hibernate/hibernate3.6/doc/index.html</a>，私以为放出这个文档就可以了。<br>代码地址如下:  </p>
+<p>###使用方法</p>
+<p>maven坐标:groupId:artifactId:packaging:version  </p>
+<p>实体关系：<br>    1-1<br>    1-n<br>    m-n</p>
+<p>###性能测试</p>
+<p>###面试常问的问题</p>
+<p>###实际开发可能会遇到的问题  </p>
+<pre><code>- 通用dao的编写
+- 二级缓存
+</code></pre>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/java/">#java</a></li>
+    
+      <li><a href="/tags/web/">#web</a></li>
+    
+      <li><a href="/tags/框架/">#框架</a></li>
+    
+  </ul>
+
+    
+      
+        <a href="/2015/05/25/20150525hibernate/#comments" class="post-foot-link ds-thread-count fr" data-thread-key="post-20150525hibernate">评论</a>
+      
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2015/05/07/20150507gradle1/">gradle学习（一）</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2015-05-07T12:20:04.000Z" class="post-time">2015-05-07</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>web项目写的越来越多，感觉越来越麻烦（其实是越来越懒），就想让工作全部都自动化，最近发现了one thing——gradle, 构建工具，就此挖坑。</p>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/java/">#java</a></li>
+    
+      <li><a href="/tags/web/">#web</a></li>
+    
+      <li><a href="/tags/gradle/">#gradle</a></li>
+    
+  </ul>
+
+    
+      <a href="/2015/05/07/20150507gradle1/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2015/04/15/20150415spring_mvc_muti_object/">spring MVC将表单数据绑定到多个命令对象中</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2015-04-15T12:33:53.000Z" class="post-time">2015-04-15</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>原因、场景： 在一个form里需要传递2个或更多的对象。</p>
+<p>关键在于controller里的@InitBinder注解</p>
+<p>话不多说，直接上代码</p>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/spring-MVC/">#spring MVC</a></li>
+    
+      <li><a href="/tags/javaweb/">#javaweb</a></li>
+    
+  </ul>
+
+    
+      <a href="/2015/04/15/20150415spring_mvc_muti_object/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2015/04/09/20150409mathjax_in_markdown/">Markdown文章中插入公式</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2015-04-09T12:27:42.000Z" class="post-time">2015-04-09</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>LATEX（通常读作/ˈleɪ.tɛk/（音译“莱泰克”）或者/ˈlɑ.tɛk/（音译“拉泰克”））文字形式写作LaTeX，是一种基于TEX的排版系统，由美国电脑学家莱斯利·兰伯特在20世纪80年代初期开发,</p>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/markdown/">#markdown</a></li>
+    
+  </ul>
+
+    
+      <a href="/2015/04/09/20150409mathjax_in_markdown/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2014/11/28/20141128world_in_eye_of_gold_sachs/">《高盛眼中的世界》读书笔记</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2014-11-28T00:37:14.000Z" class="post-time">2014-11-28</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>##第5章 资源</p>
+<ol>
+<li>石油等大宗商品价格可能随着金砖国家的需求上涨而价格上涨。但不排除金砖国家找到新能源或者新技术替代石油的使用，到时候石油的价格可能就不会那么高</li>
+<li>2004年以来，另一个重要的变化是，中国和印度都在积极支持替代能源的开发，而且最近有继续加大之势。<ol>
+<li>中国计划在2020年将碳排放量降低到2005年的40% ~ 45%。这样世界石油消耗产生巨大影响,需求降低之后就会伴随着油价的下降。</li>
+<li>中国正在采取积极的低碳举措。电动汽车就是一方面。而且中国正在全力扶持电池产业的发展（各位有兴趣的关注一下比亚迪的股票）。</li>
+</ol>
+</li>
+</ol>
+<p><a href="http://www.zhihu.com/question/26066131" target="_blank" rel="noopener">2014 年 10 月的 WTI 石油价格暴跌是什么原因</a></p>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/经济/">#经济</a></li>
+    
+  </ul>
+
+    
+      <a href="/2014/11/28/20141128world_in_eye_of_gold_sachs/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2014/11/02/20141102python_essential_reference_1/">《python参考手册》第一章 读书笔记</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2014-11-02T02:37:25.000Z" class="post-time">2014-11-02</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p><strong>1.3 条件语句</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if a &lt; b:</span><br><span class="line">	print &quot;computer says yes&quot;</span><br><span class="line">else:</span><br><span class="line">	pass #do nothing</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if suffix == &quot;.html&quot;</span><br><span class="line">	context = &quot;text/html&quot;</span><br><span class="line">elif suffix == &quot;.jpg&quot;</span><br><span class="line">	context = &quot;image/jepg&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>1.4 文件输入和输出</strong><br>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/python/">#python</a></li>
+    
+  </ul>
+
+    
+      <a href="/2014/11/02/20141102python_essential_reference_1/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2014/07/30/20140730py_1_file/">python学习（一）——python文件处理</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2014-07-30T07:51:32.000Z" class="post-time">2014-07-30</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>open函数（name,[,mode[,buffering]])  </p>
+<ul>
+<li>name: 文件名  </li>
+<li>mode: 文件模式  </li>
+<li>buffering: 文件缓冲   </li>
+<li>返回值：文件对象</li>
+</ul>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/python/">#python</a></li>
+    
+  </ul>
+
+    
+      <a href="/2014/07/30/20140730py_1_file/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+    <article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h2 class="post-title">
+        <a href="/2014/04/24/20140424bigmartrixmul/">基于Hadoop实现大矩阵乘法</a>
+      </h2>
+    
+  
+
+    
+<time datetime="2014-04-24T13:42:47.000Z" class="post-time">2014-04-24</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    
+      <p>Hadoop的hello world是在下载的hadoop包中自带的wordcount单词计数程序。矩阵乘法就作为hello world2来练习使用Hadoop。  </p>
+    
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+    
+  <ul class="post-tag home-tag icon-tag fl">
+    
+      <li><a href="/tags/Hadoop/">#Hadoop</a></li>
+    
+      <li><a href="/tags/java/">#java</a></li>
+    
+  </ul>
+
+    
+      <a href="/2014/04/24/20140424bigmartrixmul/#more" class="post-foot-link fr">阅读全文</a>
+    
+    </section>
+  </footer>
+  
+</article>
+  
+  
+    <nav class="page-nav">
+      
+        <a href="/">&laquo; 上一页</a>
+      
+      
+        <a href="/page/3/">下一页 &raquo;</a>
+      
+    </nav>
+  
+</section>
+    <footer id="footer">
+    <div class="foot-warp">
+      <p>© 2014 QI</p>
+    </div>
+  </footer>
+  <script src="/js/tools.js"></script>
+  
+  
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:'evanzh7'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
+  
+  
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</body>
+</html>

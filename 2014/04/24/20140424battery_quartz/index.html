@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>web项目中定时操作--quartz框架 - QI</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link rel="alternative" href="/atom.xml" title="QI" type="application/atom+xml">
+  
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5.js"></script>
+    <script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+
+</head>
+<body>
+    <header id="header">
+    <div class="nav-warp">
+      <nav id="nav" class="w">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/recommend">推荐</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+        <a id="nav-search" class="icon-search fr" onclick="show_search()" title="搜索"></a>
+        <div id="nav-search-input" class="hide">
+          <form class="search-form" onsubmit="return dispatch()">
+            <input type="hidden" id="site" value="site:http://evanzh7.github.com">
+            <input type="text" id="q" class="input-text" name="q" placeholder="搜索">
+            <input type="submit" value="" class="input-submit">
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="logo">
+      <div class="hg">
+      
+        <h2 id="site-title">
+          <a href="/">QI</a>
+        </h2>
+        
+          <p id="site-description">Let&#39;s hack</p>
+        
+      
+      </div>
+    </div>
+  </header>
+
+  <section id="main"><article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h1 class="post-title">web项目中定时操作--quartz框架</h1>
+    
+  
+
+    
+<time datetime="2014-04-24T13:27:22.000Z" class="post-time">2014-04-24</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    <p>需求：需要对数据库中的一个字段做倒计时处理。这里还要与spring和结合使用。<br>    quartz版本为1.6.5。到官网下载jar包，添加到项目中。<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">	public class Job &#123;</span><br><span class="line">	</span><br><span class="line">	BatteryDao batteryDao;</span><br><span class="line">	</span><br><span class="line">	List&lt;Battery&gt; batteryList;</span><br><span class="line">	</span><br><span class="line">	public void work()&#123;</span><br><span class="line">		Time time   = new Time(System.currentTimeMillis());</span><br><span class="line">		//取出数据库中所有的电池</span><br><span class="line">		batteryList = batteryDao.findAll();</span><br><span class="line">		//迭代器</span><br><span class="line">		Iterator it = batteryList.iterator();</span><br><span class="line">		//迭代操作</span><br><span class="line">		while(it.hasNext())&#123;</span><br><span class="line">			Battery battery = (Battery)it.next();</span><br><span class="line">			//获得要操作的电池的时间属性</span><br><span class="line">			int leftTime = battery.getLeftTime();</span><br><span class="line">			</span><br><span class="line">			if(leftTime&gt;0)&#123;</span><br><span class="line">				//每个电池化成时间减一</span><br><span class="line">				battery.setLeftTime(leftTime-1);</span><br><span class="line">				</span><br><span class="line">				//电池对象存回数据库</span><br><span class="line">				batteryDao.makePersist(battery);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public BatteryDao getBatteryDao() &#123;</span><br><span class="line">		return batteryDao;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setBatteryDao(BatteryDao batteryDao) &#123;</span><br><span class="line">		this.batteryDao = batteryDao;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line">	</span><br><span class="line">	applicationContext.xml，该文件是spring文件结合spring框架需要配置的地方。</span><br></pre></td></tr></table></figure>
+<pre><code>&lt;!-- 定时任务调度 --&gt;
+&lt;!-- bean1:要调用的工作类 这里的supben.Job就是上面的类--&gt;
+&lt;bean id=&quot;quartzJob&quot; class=&quot;supben.Job&quot;&gt;
+    &lt;!--batteryDao是直接操作电池实体类的类文件--&gt;
+    &lt;property name=&quot;batteryDao&quot; ref=&quot;batteryDao&quot; /&gt;
+&lt;/bean&gt;
+
+&lt;!-- bean2:定义调用对象和调用对象的方法 --&gt;
+&lt;bean id=&quot;jobtask&quot; class=&quot;org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean&quot;&gt;
+    &lt;!-- 调用的类 --&gt;
+    &lt;property name=&quot;targetObject&quot;&gt;
+        &lt;ref bean=&quot;quartzJob&quot;/&gt;
+    &lt;/property&gt;
+    &lt;!-- 调用类中的方法 --&gt;
+    &lt;property name=&quot;targetMethod&quot;&gt;
+        &lt;value&gt;work&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- bean3:定义触发时间 --&gt;
+&lt;bean id=&quot;doTime&quot; class=&quot;org.springframework.scheduling.quartz.CronTriggerBean&quot;&gt;
+    &lt;property name=&quot;jobDetail&quot;&gt;
+        &lt;ref bean=&quot;jobtask&quot;/&gt;
+    &lt;/property&gt;
+    &lt;!-- cron表达式 --&gt;
+    &lt;property name=&quot;cronExpression&quot;&gt;
+        &lt;!-- 每隔30分钟 --&gt;
+        &lt;!-- &lt;value&gt;0 0,30 * * * ?&lt;/value&gt; --&gt;
+        &lt;!-- 每隔一小时 --&gt;
+        &lt;value&gt;0 * */1 * * ?&lt;/value&gt;
+
+    &lt;/property&gt;
+&lt;/bean&gt;
+
+&lt;!-- bean4:总管理类 如果将lazy-init=&apos;false&apos;那么容器启动就会执行调度程序  --&gt;
+&lt;bean id=&quot;startQuertz&quot; lazy-init=&quot;false&quot; autowire=&quot;no&quot; class=&quot;org.springframework.scheduling.quartz.SchedulerFactoryBean&quot;&gt;
+    &lt;property name=&quot;triggers&quot;&gt;
+        &lt;list&gt;
+            &lt;ref bean=&quot;doTime&quot;/&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><p>```</p>
+<pre><code>另外关于出发时间如何配置，网上有文章说明，搜索“quartz 时间格式”即可找到。
+</code></pre>
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+      
+  <ul class="post-tag icon-tag fl">
+    
+      <li><a href="/tags/java/">#java</a></li>
+    
+      <li><a href="/tags/web/">#web</a></li>
+    
+  </ul>
+
+      
+  <ul class="post-category icon-category fr">
+    
+      <li><a href="/categories/web开发/">web开发</a></li>
+    
+  </ul>
+
+    </section>
+  </footer>
+  
+</article>
+
+    
+<nav id="post-nav" class="clear">
+  
+    <a href="/2014/04/24/20140424bigmartrixmul/" id="post-nav-newer" class="post-nav-link-wrap fl" title="基于Hadoop实现大矩阵乘法">
+      <div class="post-nav-title">&laquo; 基于Hadoop实现大矩阵乘法</div>
+    </a>
+  
+  
+    <a href="/2014/04/13/20140413webBattery/" id="post-nav-older" class="post-nav-link-wrap fr" title="java web项目总结">
+      <div class="post-nav-title">java web项目总结 &raquo;</div>
+    </a>
+  
+</nav>
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-20140424battery_quartz" data-title="web项目中定时操作--quartz框架" data-url="http://evanzh7.github.com/2014/04/24/20140424battery_quartz/"></div>
+  <!-- 多说评论框 end -->
+</section>
+</section>
+    <footer id="footer">
+    <div class="foot-warp">
+      <p>© 2014 QI</p>
+    </div>
+  </footer>
+  <script src="/js/tools.js"></script>
+  
+  
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:'evanzh7'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
+  
+  
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</body>
+</html>

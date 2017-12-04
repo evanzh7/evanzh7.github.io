@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>《python参考手册》第一章 读书笔记 - QI</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link rel="alternative" href="/atom.xml" title="QI" type="application/atom+xml">
+  
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5.js"></script>
+    <script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+
+</head>
+<body>
+    <header id="header">
+    <div class="nav-warp">
+      <nav id="nav" class="w">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/recommend">推荐</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+        <a id="nav-search" class="icon-search fr" onclick="show_search()" title="搜索"></a>
+        <div id="nav-search-input" class="hide">
+          <form class="search-form" onsubmit="return dispatch()">
+            <input type="hidden" id="site" value="site:http://evanzh7.github.com">
+            <input type="text" id="q" class="input-text" name="q" placeholder="搜索">
+            <input type="submit" value="" class="input-submit">
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="logo">
+      <div class="hg">
+      
+        <h2 id="site-title">
+          <a href="/">QI</a>
+        </h2>
+        
+          <p id="site-description">Let&#39;s hack</p>
+        
+      
+      </div>
+    </div>
+  </header>
+
+  <section id="main"><article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h1 class="post-title">《python参考手册》第一章 读书笔记</h1>
+    
+  
+
+    
+<time datetime="2014-11-02T02:37:25.000Z" class="post-time">2014-11-02</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    <p><strong>1.3 条件语句</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if a &lt; b:</span><br><span class="line">	print &quot;computer says yes&quot;</span><br><span class="line">else:</span><br><span class="line">	pass #do nothing</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if suffix == &quot;.html&quot;</span><br><span class="line">	context = &quot;text/html&quot;</span><br><span class="line">elif suffix == &quot;.jpg&quot;</span><br><span class="line">	context = &quot;image/jepg&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>1.4 文件输入和输出</strong><br><a id="more"></a></p>
+<p><strong>1.5 字符串</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = &quot;hello world&quot;</span><br><span class="line">b = &apos;python is groovy&apos;</span><br><span class="line">c = &quot;&quot;&quot;computer says &apos;no&apos;&quot;&quot;&quot; </span><br><span class="line">d = &apos;&apos;&apos;三个单引号</span><br><span class="line">	出现的文本可以不在一个一行上&apos;&apos;&apos;</span><br></pre></td></tr></table></figure></p>
+<p>方法：<br>切片运算符：s[ i : j ] i 可以省略，j可以省略<br>可以用加运算符连接两个字符串</p>
+<p><strong>1.6 列表</strong><br>任意对象的序列，将值放入方括号中就可以创建列表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">names = [ &quot;Dave&quot; , &quot;Mark&quot;, &quot;Ann&quot; , &quot;Phil&quot; ]</span><br></pre></td></tr></table></figure></p>
+<p>方法：<br>1 .append()<br>2 .insert()<br>3 +运算符</p>
+<p><strong>1.7 元组</strong><br>在圆括号中放入一组值即可创建元祖。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stock = ( &apos;GOOG&apos;, 100, 490.10 )</span><br></pre></td></tr></table></figure></p>
+<p>与列表的区别是，元祖创建后不能修改其内容。</p>
+<p><strong>1.8 集合</strong></p>
+<ol>
+<li>与列表和元组不同，集合是无序对象</li>
+<li>创建集合用set( )函数</li>
+<li>集合中的元素不能重复</li>
+<li>集合支持一系列标准操作：并集 交集 差集 对称差集</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = set([3, 5, 9, 10])</span><br><span class="line">t = set(&quot;Hello&quot;)</span><br></pre></td></tr></table></figure>
+<p><strong>1.9 字典</strong><br>举例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stock = &#123;</span><br><span class="line">	&quot;name&quot;   : &quot;GOOG&quot;,</span><br><span class="line">	&quot;shares&quot; : 100,</span><br><span class="line">	&quot;price&quot;  : 490.10</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>访问字段:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stock[&quot;shares&quot;] = 75</span><br><span class="line">stock[&quot;date&quot;] = &quot;June 7, 2007&quot;</span><br></pre></td></tr></table></figure></p>
+<p>创建空字典：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">prices = &#123; &#125; #一个空字典</span><br><span class="line">prices = dict() #一个空字典</span><br></pre></td></tr></table></figure></p>
+<p><strong>1.10 迭代与循环</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for var in list</span><br><span class="line">	print var</span><br></pre></td></tr></table></figure></p>
+<p><strong>1.11 函数</strong><br>使用def语句可以创建函数，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def remainder(a,b)</span><br><span class="line">	q = a // b # // 是截断除法运算符 </span><br><span class="line">	r = a - q*b</span><br><span class="line">	return r</span><br></pre></td></tr></table></figure></p>
+<p><strong>1.12 生成器</strong><br> 使用yield语句</p>
+<p><strong>1.13 协程</strong><br>把函数编写为一个任务，从而能处理发送给它的一系列输入。这类函数称为协程。<br>使用send函数为协程发送值。</p>
+<p><strong>1.14 对象与类</strong><br>dir函数可列出对象上的可用方法，是进行交互式试验的有用工具。<br>class Stack(object)<br>将Stack声明为一个object。使用圆括号是Python指定继承的方式。<br>类定义中使用def语句定义了方法。<br>每个方法中的第一个参数始终指向对象本身。该参数使用名称self。<br>可以将方法声明为静态方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class EventHanlder(object)</span><br><span class="line">	@staticmethod</span><br><span class="line">	def dispatcherThread()</span><br><span class="line">		while(1):</span><br><span class="line">			#等待请求</span><br><span class="line">			...</span><br><span class="line">EventHandler.dispatcherTread() #像函数一样调用方法</span><br></pre></td></tr></table></figure></p>
+<p><strong>1.15 异常</strong><br>可以使用try和except语句捕捉并处理异常<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	f = open(&quot;file.txt&quot;,&quot;r&quot;)</span><br><span class="line">except IOError as e:</span><br><span class="line">	print e</span><br></pre></td></tr></table></figure></p>
+<p>raise语句用于手工引发异常。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raise RuntimeError(&quot;Computer says no&quot;)</span><br></pre></td></tr></table></figure></p>
+<p><strong>1.16 模块</strong><br>要在其他模块中使用该模块，可以使用import语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import div</span><br><span class="line">a, b = div.divide(2305, 29)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//如果使用不同的名称导入模块， 可以给import语句加上可选的as限定符</span><br><span class="line">import div as foo</span><br><span class="line">a, b = foo.divide(2305, 29)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//如果要将具体的定义导入到当前的命名空间中，可以使用from语句</span><br><span class="line">from div import divide</span><br><span class="line">a, b = divide(2305, 29)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//要把模块所有的内容加载到当前的命名空间中，可以使用如下语句</span><br><span class="line">from div import *</span><br></pre></td></tr></table></figure>
+
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+      
+  <ul class="post-tag icon-tag fl">
+    
+      <li><a href="/tags/python/">#python</a></li>
+    
+  </ul>
+
+      
+  <ul class="post-category icon-category fr">
+    
+      <li><a href="/categories/python/">python</a></li>
+    
+  </ul>
+
+    </section>
+  </footer>
+  
+</article>
+
+    
+<nav id="post-nav" class="clear">
+  
+    <a href="/2014/11/28/20141128world_in_eye_of_gold_sachs/" id="post-nav-newer" class="post-nav-link-wrap fl" title="《高盛眼中的世界》读书笔记">
+      <div class="post-nav-title">&laquo; 《高盛眼中的世界》读书笔记</div>
+    </a>
+  
+  
+    <a href="/2014/07/30/20140730py_1_file/" id="post-nav-older" class="post-nav-link-wrap fr" title="python学习（一）——python文件处理">
+      <div class="post-nav-title">python学习（一）——python文件处理 &raquo;</div>
+    </a>
+  
+</nav>
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-20141102python_essential_reference_1" data-title="《python参考手册》第一章 读书笔记" data-url="http://evanzh7.github.com/2014/11/02/20141102python_essential_reference_1/"></div>
+  <!-- 多说评论框 end -->
+</section>
+</section>
+    <footer id="footer">
+    <div class="foot-warp">
+      <p>© 2014 QI</p>
+    </div>
+  </footer>
+  <script src="/js/tools.js"></script>
+  
+  
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:'evanzh7'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
+  
+  
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</body>
+</html>

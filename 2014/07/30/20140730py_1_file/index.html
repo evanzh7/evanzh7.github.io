@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <title>python学习（一）——python文件处理 - QI</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link rel="alternative" href="/atom.xml" title="QI" type="application/atom+xml">
+  
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/html5.js"></script>
+    <script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+
+</head>
+<body>
+    <header id="header">
+    <div class="nav-warp">
+      <nav id="nav" class="w">
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/recommend">推荐</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+        <a id="nav-search" class="icon-search fr" onclick="show_search()" title="搜索"></a>
+        <div id="nav-search-input" class="hide">
+          <form class="search-form" onsubmit="return dispatch()">
+            <input type="hidden" id="site" value="site:http://evanzh7.github.com">
+            <input type="text" id="q" class="input-text" name="q" placeholder="搜索">
+            <input type="submit" value="" class="input-submit">
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="logo">
+      <div class="hg">
+      
+        <h2 id="site-title">
+          <a href="/">QI</a>
+        </h2>
+        
+          <p id="site-description">Let&#39;s hack</p>
+        
+      
+      </div>
+    </div>
+  </header>
+
+  <section id="main"><article class="post">
+  <header class="post-head">
+    
+  
+    
+      <h1 class="post-title">python学习（一）——python文件处理</h1>
+    
+  
+
+    
+<time datetime="2014-07-30T07:51:32.000Z" class="post-time">2014-07-30</time>
+
+  </header>
+  
+  <section class="post-content typo">
+    <p>open函数（name,[,mode[,buffering]])  </p>
+<ul>
+<li>name: 文件名  </li>
+<li>mode: 文件模式  </li>
+<li>buffering: 文件缓冲   </li>
+<li>返回值：文件对象</li>
+</ul>
+<a id="more"></a>  
+<p>##三种标准的流  </p>
+<ol>
+<li>数据输入的标准源————sys.stdin内  </li>
+<li>要打印的文本保存在————sys.stdout内  </li>
+<li>错误信息写入————sys.stderr  </li>
+</ol>
+<p>###1.读写文件步骤  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> f.open();  </span><br><span class="line"> //读写操作  </span><br><span class="line"> f.close();  </span><br><span class="line">```  </span><br><span class="line">###2.如何写文件</span><br></pre></td></tr></table></figure>
+<p> f.write(‘hello world’);<br> //没有writeline()方法<br> f.writelines();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">###3.如何读文件</span><br></pre></td></tr></table></figure></p>
+<p> f.read()//不带参数读取所有<br> f.read(‘4’);//读取多少个字节<br> f.readline()<br> f.readlines();//读取一个文件所有行并将其作为列表返回<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">**随机读**  </span><br><span class="line">   </span><br><span class="line">1. seek(offset[,whence])  </span><br><span class="line">2. tell  </span><br><span class="line">  </span><br><span class="line">###4.关闭文件</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"> try:  </span><br><span class="line"> //将数据写入文件  </span><br><span class="line"> finally  </span><br><span class="line">	file.close()</span><br><span class="line">  </span><br><span class="line">  with open(&quot;somefile.txt&quot;) as somefile:  </span><br><span class="line">  do_something(somefile)</span><br></pre></td></tr></table></figure></p>
+<p>  with语句可以打开文件，并且将其赋值到变量上（本例中是somefile）。文件在语句结束后会被自动关闭。即使是由于异常引起的结束也是如此。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xreadlines()</span><br><span class="line">//旧版本文件迭代器，不推荐使用    </span><br><span class="line">process()</span><br><span class="line">//虚拟函数 fictitious function </span><br><span class="line">//用来表示每个字符或每行的处理过程</span><br></pre></td></tr></table></figure>
+<p>###5.迭代文件<br>2.2版本之后，文件是可迭代的，下面是文件迭代方法  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f.open(filename)  </span><br><span class="line"> for line in f:  </span><br><span class="line">	process(line)    </span><br><span class="line">	f.close()</span><br></pre></td></tr></table></figure>
+<p>简化版的例子  </p>
+<pre><code>for line in open(filename)
+process(line)
+//sys.stdin是可迭代的  
+import sys  
+for line in sys.stdin:  
+process(line)
+</code></pre>
+  </section>
+  
+  <footer class="post-foot">
+    <section class="post-foot-warp clear">
+      
+  <ul class="post-tag icon-tag fl">
+    
+      <li><a href="/tags/python/">#python</a></li>
+    
+  </ul>
+
+      
+  <ul class="post-category icon-category fr">
+    
+      <li><a href="/categories/python/">python</a></li>
+    
+  </ul>
+
+    </section>
+  </footer>
+  
+</article>
+
+    
+<nav id="post-nav" class="clear">
+  
+    <a href="/2014/11/02/20141102python_essential_reference_1/" id="post-nav-newer" class="post-nav-link-wrap fl" title="《python参考手册》第一章 读书笔记">
+      <div class="post-nav-title">&laquo; 《python参考手册》第一章 读书笔记</div>
+    </a>
+  
+  
+    <a href="/2014/04/24/20140424bigmartrixmul/" id="post-nav-older" class="post-nav-link-wrap fr" title="基于Hadoop实现大矩阵乘法">
+      <div class="post-nav-title">基于Hadoop实现大矩阵乘法 &raquo;</div>
+    </a>
+  
+</nav>
+
+
+
+<section id="comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-20140730py_1_file" data-title="python学习（一）——python文件处理" data-url="http://evanzh7.github.com/2014/07/30/20140730py_1_file/"></div>
+  <!-- 多说评论框 end -->
+</section>
+</section>
+    <footer id="footer">
+    <div class="foot-warp">
+      <p>© 2014 QI</p>
+    </div>
+  </footer>
+  <script src="/js/tools.js"></script>
+  
+  
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:'evanzh7'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
+  
+  
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  </span>
+  <span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+</body>
+</html>
